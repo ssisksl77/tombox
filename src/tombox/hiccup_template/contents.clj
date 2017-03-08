@@ -16,6 +16,8 @@
     ]])
 
 (defn stage1 []
+  [:ul#stage1-content.list-unstyled
+  [:li
   [:nav {:class "navbar"}
    [:div {:class "container-fluid"}
     [:div {:class "navbar-header"}
@@ -27,14 +29,10 @@
      [:li (link-to "#" "Page 2")]]
     
     [:ul {:class "nav navbar-nav navbar-right"}
-;     [:li (link-to {:id "sign-up" :class "glyphicon glyphicon-user" } "#" "Sign up")]
      [:li (link-to {:id "sign-up" :class "glyphicon glyphicon-user" } "#" "Sign up")]
-     [:li (link-to {:class "glyphicon glyphicon-log-in"} "#" "Login")]]]])
-
-;(defn stage1 []
-;  [:div {:class "row-fluid"}
-;   [:div {:class "span2 bg-1"} "여기는 span2"]
-;   [:div {:class "span10"} "여기는 span10"]])
+     [:li (link-to {:class "glyphicon glyphicon-log-in"} "#" "Login")]]]]]
+   
+  [:div#sign-form {:class "jumbotron hidden"} "Hello world!!!!"]])
 
 (defn not-found []
   [:div

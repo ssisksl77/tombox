@@ -6,22 +6,31 @@
             [tombox.hiccup-template.layout :as layout]
             [tombox.hiccup-template.contents :as contents]))
 
+(declare json-wrapper)
+;; stage1 라우팅
 (defn user-routes []
   (routes
-   (GET "/" [] (layout/fluid-layout "놀이마당 첫번쨰!!!" (contents/stage1)))
-   (GET "/:user-id" [user-id] (str "USER-ID: " user-id))))
+   (GET "/" [] (layout/fluid-layout "놀이마당 첫번째!!!" (contents/stage1)))
+   (GET "/sign-up" []  (json-wrapper "나는 톰이라고 합니다. 사인하고 싶다고요? 그러면 만들고 싶은 ID를 가르쳐주세요. "))))
 
-
+;; 기본 환경
 (defroutes app-routes
   (GET "/" [] (layout/application "남영환의 클로저 놀이마당" (contents/index)))
   (GET "/user" [] {:status 200
                    :headers {"Content-Type" "application/json; charset=utf-8"}
                    :body (json/generate-string {:name "John Doe" :status :logged_in})})
-  ;(GET "/stage1" [] (layout/fluid-layout "놀이마당 첫번째!!!" (contents/stage1)))
   (context "/stage1" []
            (user-routes))
   
   (route/not-found (layout/application "Page Not Found" (contents/not-found))))
 
+
 (def app
   (wrap-defaults app-routes site-defaults))
+
+;;;util
+(defn json-wrapper [data]
+  {:status 200
+   :headers {"Content-Type" "application/json; charset=utf-8"}
+   :body (json/generate-string data)})
+  

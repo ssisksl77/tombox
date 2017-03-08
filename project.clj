@@ -11,7 +11,9 @@
                  [org.clojure/core.async "0.3.441"]
                  [domina "1.0.3"]
                  [hiccup "1.0.5"]
-                 [cljs-ajax "0.5.8"]]
+                 ;; [hiccups "0.3.0"] ;; hiccup on ClojureScript 아직 사용하면 안될듯
+                 [cljs-ajax "0.5.8"]
+                 ]
                  ;[org.clojure/java.jdbc "0.7.0-alpha2"]
                  ;[org.postgresql/postgresql "9.4.1207"]]
   :plugins [[lein-ring "0.9.7"]
