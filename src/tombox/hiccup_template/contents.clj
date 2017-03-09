@@ -32,7 +32,10 @@
      [:li (link-to {:id "sign-up" :class "glyphicon glyphicon-user" } "#" "Sign up")]
      [:li (link-to {:class "glyphicon glyphicon-log-in"} "#" "Login")]]]]]
    
-  [:div#sign-form {:class "jumbotron hidden"} "Hello world!!!!"]])
+    [:li
+   [:div#head-context.jumbotron
+    [:h2#jumbotron-header ]
+    [:p#jumbotron-context "Hello World!"]]]])
 
 (defn not-found []
   [:div
@@ -43,3 +46,15 @@
 (defn create-li-tags [list]
   (for [x list]
     [:li.list-group-item x]))
+
+(defn sign-up-form []
+  [:div
+   [:h2 "회원가입"]
+   [:div#form-group
+    [:form
+     [:label {:for "email"} "Email"]
+     [:input {:id "email" :type "email" :class "form-control" :placeholder "Enter Email"}]
+     [:label {:for "password"} "Password"]
+     [:input {:id "pwd" :type "password" :class "form-control" :placeholder "Enter Password"}]
+     [:div.checkbox [:label [:input {:type "checkbox"} "두유 노우 클로저?"]]]
+     [:button {:type "submit" :class "btn btn-default"} "Submit"]]]])

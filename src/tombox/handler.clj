@@ -8,19 +8,20 @@
 
 (declare json-wrapper)
 ;; stage1 라우팅
-(defn user-routes []
+(defn user-routes [request]
   (routes
    (GET "/" [] (layout/fluid-layout "놀이마당 첫번째!!!" (contents/stage1)))
-   (GET "/sign-up" []  (json-wrapper "나는 톰이라고 합니다. 사인하고 싶다고요? 그러면 만들고 싶은 ID를 가르쳐주세요. "))))
+   (GET "/sign-up" []  (json-wrapper (layout/simple-render (contents/sign-up-form))))
+   (POST "/sign-up" [] request)))
 
 ;; 기본 환경
 (defroutes app-routes
-  (GET "/" [] (layout/application "남영환의 클로저 놀이마당" (contents/index)))
+  (GET "/" [] (layout/application "클로저 놀이마당" (contents/index)))
   (GET "/user" [] {:status 200
                    :headers {"Content-Type" "application/json; charset=utf-8"}
                    :body (json/generate-string {:name "John Doe" :status :logged_in})})
-  (context "/stage1" []
-           (user-routes))
+  (context "/stage1" [request]
+           (user-routes request))
   
   (route/not-found (layout/application "Page Not Found" (contents/not-found))))
 
@@ -34,3 +35,16 @@
    :headers {"Content-Type" "application/json; charset=utf-8"}
    :body (json/generate-string data)})
   
+
+
+(layout/simple-render (contents/sign-up-form))
+
+(layout/simple-render-macro-error (contents/sign-up-form))
+
+(macroexpand-1 (layout/simple-render-macro-error (contents/sign-up-form)))
+
+(macroexpand-1 `(layout/simple-render-macro-error [:g2 "A"]))
+
+(contents/sign-up-form)
+
+(layout/simple-render [:div [:h2 "A"]])

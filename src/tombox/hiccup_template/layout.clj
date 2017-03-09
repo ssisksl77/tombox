@@ -14,7 +14,14 @@
              [:body
               [:div {:class "container"} content]
               (hp/include-js "main.js")]))
-             
+
+
+
+
+
+
+
+
 (defn fluid-layout [title & content]
   (hp/html5 {:ng-app "tomApp" :lang "en"}
             [:head
@@ -38,3 +45,14 @@
             [:body
              [:div {:class ~(:container-type data "container")} ~(:content data "데이터가 없습니다.")]]))
 
+(defn simple-render [data]
+  (h/html data))
+
+(simple-render  [:div [:h2 "회원가입"]
+   [:div#form-group
+    [:label {:for "email"} "Email"]
+    [:form {:type "email" :class "form-control" :placeholder "Enter Email"}]]])
+
+
+(defmacro simple-render-macro-error [data]
+  (h/html data))
