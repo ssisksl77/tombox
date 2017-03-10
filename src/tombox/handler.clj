@@ -5,7 +5,7 @@
             [cheshire.core :as json]
             [tombox.hiccup-template.layout :as layout]
             [tombox.hiccup-template.contents :as contents]))
-
+ 
 (declare json-wrapper)
 ;; stage1 라우팅
 (defn user-routes [request]
@@ -34,17 +34,3 @@
   {:status 200
    :headers {"Content-Type" "application/json; charset=utf-8"}
    :body (json/generate-string data)})
-  
-
-
-(layout/simple-render (contents/sign-up-form))
-
-(layout/simple-render-macro-error (contents/sign-up-form))
-
-(macroexpand-1 (layout/simple-render-macro-error (contents/sign-up-form)))
-
-(macroexpand-1 `(layout/simple-render-macro-error [:g2 "A"]))
-
-(contents/sign-up-form)
-
-(layout/simple-render [:div [:h2 "A"]])
