@@ -50,14 +50,22 @@
 (defn sign-up-form []
   [:div 
    [:h2 "회원가입"]
-    [:form.form-horizontal ;.form-inline ;; 한줄로 늘이는 것
+   [:form.form-horizontal ;.form-inline ;; 한줄로 늘이는 것
      [:div#form-group
        [:label.control-label.col-sm-2 {:for "email"} "Email"]
        [:div.col-sm-10
        [:input {:id "email" :type "email" :class "form-control" :placeholder "Enter Email"}]]]
+
      [:div#form-group
        [:label.control-label.col-sm-2 {:for "password" } "Password"]
        [:div.col-sm-10
-         [:input {:id "pwd" :type "password" :class "form-control" :placeholder "Enter Password"}]]]
-     [:div.checkbox [:label [:input {:type "checkbox"} "두유 노우 클로저?"]]]
-     [:button {:type "submit" :class "btn btn-default"} "Submit"]]])
+         [:input.input-block {:id "pwd" :type "password" :class "form-control" :placeholder "Enter Password"}]]]
+
+     [:div.form-group
+       [:div.col-sm-offset-2.col-sm-10
+         [:div.checkbox [:label [:input {:type "checkbox"} "심심하니 체크해주세요."]]]]]
+
+     [:div.form-group
+       [:div.col-sm-offset-2.col-sm-10
+         [:button {:type "submit" :class "btn btn-default"} "Submit"]]]]])
+

@@ -48,11 +48,8 @@
 (defn simple-render [data]
   (h/html data))
 
-(simple-render  [:div [:h2 "회원가입"]
-   [:div#form-group
-    [:label {:for "email"} "Email"]
-    [:form {:type "email" :class "form-control" :placeholder "Enter Email"}]]])
-
+(defn simple-render-all [& datas]
+  (h/html (reduce conj [:div] datas))) ;; 억지로 [:div]를 붙여서 한번에 하나로 만들어서 simple-render에 넣지 않아도 됨.
 
 (defmacro simple-render-macro-error [data]
   (h/html data))
