@@ -48,13 +48,15 @@
     [:li.list-group-item x]))
 
 (defn sign-up-form []
-  [:div
+  [:div 
    [:h2 "회원가입"]
-   [:div#form-group
-    [:form
-     [:label {:for "email"} "Email"]
-     [:input {:id "email" :type "email" :class "form-control" :placeholder "Enter Email"}]
-     [:label {:for "password"} "Password"]
-     [:input {:id "pwd" :type "password" :class "form-control" :placeholder "Enter Password"}]
+    [:form.form-horizontal ;.form-inline ;; 한줄로 늘이는 것
+     [:div#form-group
+       [:label.control-label {:for "email"} "Email"]
+       [:input {:id "email" :type "email" :class "form-control" :placeholder "Enter Email"}]]
+     [:div#form-group
+       [:label.control-label.col-sm-2 {:for "password" } "Password"]
+       [:div.col-sm-10
+         [:input {:id "pwd" :type "password" :class "form-control" :placeholder "Enter Password"}]]]
      [:div.checkbox [:label [:input {:type "checkbox"} "두유 노우 클로저?"]]]
-     [:button {:type "submit" :class "btn btn-default"} "Submit"]]]])
+     [:button {:type "submit" :class "btn btn-default"} "Submit"]]])
