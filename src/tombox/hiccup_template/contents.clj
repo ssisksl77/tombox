@@ -52,8 +52,9 @@
    [:h2 "회원가입"]
     [:form.form-horizontal ;.form-inline ;; 한줄로 늘이는 것
      [:div#form-group
-       [:label.control-label {:for "email"} "Email"]
-       [:input {:id "email" :type "email" :class "form-control" :placeholder "Enter Email"}]]
+       [:label.control-label.col-sm-2 {:for "email"} "Email"]
+       [:div.col-sm-10
+       [:input {:id "email" :type "email" :class "form-control" :placeholder "Enter Email"}]]]
      [:div#form-group
        [:label.control-label.col-sm-2 {:for "password" } "Password"]
        [:div.col-sm-10
