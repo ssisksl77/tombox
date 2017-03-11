@@ -20,17 +20,16 @@
   [:li
   [:nav {:class "navbar"}
    [:div {:class "container-fluid"}
-    [:div {:class "navbar-header"}
-     [:a {:class "navbar-brand" :href "/"} "스테이지원"]]
+    [:div {:class "navbar-header"}]
     
-    [:ul {:class "nav navbar-nav"}
-     [:li {:class "active" :id "go-home"} (link-to "#" "Home")]
-     [:li (link-to "#" "Page 1")]
-     [:li (link-to "#" "Page 2")]]
+    [:ul {:class "nav navbar-brand "}
+     [:li {:class "active" :id "go-home"} (link-to "/" "Home")]]
+     ;[:li (link-to "#" "Page 1")]
+     ;[:li (link-to "#" "Page 2")]]
     
     [:ul {:class "nav navbar-nav navbar-right"}
-     [:li (link-to {:id "sign-up" :class "glyphicon glyphicon-user" } "#" "Sign up")]
-     [:li (link-to {:class "glyphicon glyphicon-log-in"} "#" "Login")]]]]]
+     [:li (link-to {:id "sign-up" :class "glyphicon glyphicon-user" } "#" " Sign up")]
+     [:li (link-to {:class "glyphicon glyphicon-log-in" :data-toggle "modal" :data-target "#sign-up-form-modal"} "#" " Login")]]]]]
    
     [:li
    [:div#head-context.jumbotron
@@ -54,12 +53,12 @@
      [:div#form-group
        [:label.control-label.col-sm-2 {:for "email"} "Email"]
        [:div.col-sm-10
-       [:input {:id "email" :type "email" :class "form-control" :placeholder "Enter Email"}]]]
+       [:input#email.form-control {:type "email" :placeholder "Enter Email"}]]]
 
      [:div#form-group
        [:label.control-label.col-sm-2 {:for "password" } "Password"]
        [:div.col-sm-10
-         [:input.input-block {:id "pwd" :type "password" :class "form-control" :placeholder "Enter Password"}]]]
+         [:input#pwd.input-block.form-control { :type "password" :placeholder "Enter Password"}]]]
 
      [:div.form-group
        [:div.col-sm-offset-2.col-sm-10
@@ -67,5 +66,37 @@
 
      [:div.form-group
        [:div.col-sm-offset-2.col-sm-10
-         [:button {:type "submit" :class "btn btn-default"} "Submit"]]]]])
+        [:button#sign-up-submit.btn.btn-info.btn-lg {:type "button" :data-toggle "modal" :data-target "#sign-up-form-modal"} "Submit"]]]]])
 
+(defn sign-up-modal []
+  [:div#myModal {:class "modal fade" :role "dialog"}
+   [:div {:class "modal-dialog"}
+    ;; Modal content
+    [:div {:class "modal-content"}
+     [:div {:class "modal-header"}
+      [:button {:type "button" :class "close" :data-dismiss "modal"} "&times;"]
+      [:h4 {:class "modal-title"} "Modal Header"]]
+     [:div {:class "modal-body"}
+      [:p "Some text in the modal"]]
+     [:div {:class "modal-footer"}
+      [:button {:type "button" :class "btn btn-default" :data-dismiss "modal"} "Close"]]]]])
+
+(defn sign-up-form-modal []
+  [:div#sign-up-form-modal.modal.fade {:role "dialog"}
+   [:div.modal-dialog
+    ;; Modal content
+    [:div.modal-content
+     [:div.modal-header {:style "padding:35px 50px;"}
+      [:button.close {:type "button" :data-dismiss "modal"} "&times;"]
+      [:h4 [:span.glyphicon.glyphicon-lock "Login"]]]
+     [:div.modal-body {:style "padding:40px 50px;"}
+      [:form {:role "form"}
+       [:div.form-group
+        [:label {:for "usrname"} [:span.glyphicon.glyphicon-user] "user email"]
+        [:input#usrname.form-control {:type "text" :placeholder "Enter email"}]]
+       [:div.form-group
+        [:label {:for "psw"} [:span.glyphicon.glyphicon-eye-open] "Password"]
+        [:input#pwd.form-control {:placeholder "Enter password"}]]
+       [:div.checkbox
+        [:label [:input {:type "checkbox" :value " " :checked "" } "그냥 눌러보고 싶죠?"]]]
+       [:button.btn.btn-success.btn-block {:type "submit"} [:span.glyphicon.glyphicon-off] "Login"]]]]]])

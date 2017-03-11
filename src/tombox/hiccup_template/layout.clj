@@ -15,14 +15,8 @@
               [:div {:class "container"} content]
               (hp/include-js "main.js")]))
 
-
-
-
-
-
-
-
-(defn fluid-layout [title & content]
+;; stage1에서 쓰임
+(defn fluid-layout [title content & {:keys [modal]}]
   (hp/html5 {:ng-app "tomApp" :lang "en"}
             [:head
              [:title title]
@@ -30,7 +24,10 @@
              (hp/include-css "tomstyle.css")]
 
               [:body
-              [:div {:class "container-fluid"} content]
+               [:div {:class "container-fluid"} content]
+               [:div modal]
+               (hp/include-js "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+               (hp/include-js "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
                (hp/include-js "main.js")]))
 
 

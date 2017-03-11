@@ -10,7 +10,7 @@
 ;; stage1 라우팅
 (defn user-routes [request]
   (routes
-   (GET "/" [] (layout/fluid-layout "놀이마당 첫번째!!!" (contents/stage1)))
+   (GET "/" [] (layout/fluid-layout "놀이마당 첫번째!!!" (contents/stage1) :modal (contents/sign-up-form-modal)))
    (GET "/sign-up" []  (json-wrapper (layout/simple-render (contents/sign-up-form))))
    (POST "/sign-up" [] request)))
 
