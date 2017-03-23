@@ -12,8 +12,11 @@
 
 (defn smtp-mxlookup [hostname]
   (let [env (java.util.Hashtable. {"java.naming.factory.initial" "com.sun.jndi.dns.DnsContextFactory"})]
-    (enumeration-seq (. (. (. (InitialDirContext. env) getAttributes hostname (into-array String ["MX"])) get "MX") getAll))))
-
+;;    (enumeration-seq (. (. (. (InitialDirContext. env) getAttributes hostname (into-array String ["MX"])) get "MX") getAll))))
+    (enumeration-seq (.. (InitialDirContext. env)
+                         (getAttributes hostname (into-array String ["MX"]))
+                         (get "MX")
+                         (getAll)))))
 
 (defn mx-isexist? [mxlookup-result]
   (if-let [result mxlookup-result]
