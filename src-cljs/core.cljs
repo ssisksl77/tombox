@@ -26,6 +26,18 @@
 ;                                                       ))))
 
 
+
+
+(ev/listen! (dom/by-id "sign-up-submit")
+            :click (fn [evt] (go
+                               (let [response (<! (http/post "/stage1/sign-up"
+                                                  {:form-params {:id "ID" :pwd "PWD"}}))]
+                                 (js/alert (:body response))))))
+
+
+
 (defn ^:export init []
   (go (let [response (<! (http/get "/user"))]
         (js/alert (:body response)))))
+
+

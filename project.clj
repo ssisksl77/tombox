@@ -4,7 +4,8 @@
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [compojure "1.5.1"]
-                 [ring/ring-defaults "0.2.1"]
+                 [ring/ring-defaults "0.2.1"] 
+;;                 [ring "1.6.0-RC1"]
                  [cheshire "5.7.0"]
                  [org.clojure/clojurescript "1.9.494"]
                  [cljs-http "0.1.42"]
@@ -13,6 +14,7 @@
                  [hiccup "1.0.5"]
                  ;; [hiccups "0.3.0"] ;; hiccup on ClojureScript 아직 사용하면 안될듯
                  [cljs-ajax "0.5.8"]
+                 [ring/ring-anti-forgery "1.0.1"] ;; post 통신이 안되어서 넣은 것 anti-forgery가 디폴트인데
                  ]
                  ;[org.clojure/java.jdbc "0.7.0-alpha2"]
                  ;[org.postgresql/postgresql "9.4.1207"]]

@@ -28,7 +28,7 @@
      ;[:li (link-to "#" "Page 2")]]
     
     [:ul {:class "nav navbar-nav navbar-right"}
-     [:li (link-to {:id "sign-up" :class "glyphicon glyphicon-user" } "#" " Sign up")]
+     ;; [:li (link-to {:id "sign-up" :class "glyphicon glyphicon-user" } "#" " Sign up")]
      [:li (link-to {:class "glyphicon glyphicon-log-in" :data-toggle "modal" :data-target "#sign-up-form-modal"} "#" " Login")]]]]]
    
     [:li
@@ -39,7 +39,7 @@
 (defn not-found []
   [:div
    [:h1 {:class "info-warning"} "Page Not Found"]
-   [:p "원하는 페이지가 뭐죠? 당신이 원하는 그런거는 없습니다. 여기는 순전히 제가 만든 세상이거든요."]
+   [:p "원하는 페이지가 뭐죠? 당신이 원하는 그런거는 없습니다. 여기는 순전히 제가 만든 세상이거든요. 홈피에서 요청해주세요. 당신이 원하는 박스를 만들어 주겠어요."]
    (link-to {:class "btn btn-primary"} "/" "홈으로 돌아가기")])
 
 (defn create-li-tags [list]
@@ -97,6 +97,6 @@
        [:div.form-group
         [:label {:for "psw"} [:span.glyphicon.glyphicon-eye-open] "Password"]
         [:input#pwd.form-control {:placeholder "Enter password"}]]
-       [:div.checkbox
+       [:div.checkbox {:data-toggle "tooltip" :title "아이디가 없다면 그대로 만들어드립니다."}
         [:label [:input {:type "checkbox" :value " " :checked "" } "그냥 눌러보고 싶죠?"]]]
-       [:button.btn.btn-success.btn-block {:type "submit"} [:span.glyphicon.glyphicon-off] "Login"]]]]]])
+       [:button#sign-up-submit.btn.btn-success.btn-block {:type "button"} [:span.glyphicon.glyphicon-off] "Login"]]]]]])

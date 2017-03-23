@@ -23,7 +23,8 @@
              (hp/include-css "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
              (hp/include-css "tomstyle.css")]
 
-              [:body
+            [:body
+;;             [:div {:id "anti-forgery-token" :value token}]
                [:div {:class "container-fluid"} content]
                [:div modal]
                (hp/include-js "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
@@ -48,5 +49,5 @@
 (defn simple-render-all [& datas]
   (h/html (reduce conj [:div] datas))) ;; 억지로 [:div]를 붙여서 한번에 하나로 만들어서 simple-render에 넣지 않아도 됨.
 
-(defmacro simple-render-macro-error [data]
-  (h/html data))
+(defmacro simple-render-macro [data]
+  `(h/html ~data))
