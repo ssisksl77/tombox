@@ -66973,25 +66973,48 @@ domina.events.listen_BANG_.call(null, domina.by_id.call(null, "sign-up-submit"),
     return function() {
       var f__10767__auto__ = function() {
         var switch__10710__auto__ = function(c__10766__auto__) {
-          return function(state_24583) {
-            var state_val_24584 = state_24583[1];
-            if (state_val_24584 === 1) {
-              var inst_24571 = [new cljs.core.Keyword(null, "form-params", "form-params", 1884296467)];
-              var inst_24572 = [new cljs.core.Keyword(null, "id", "id", -1388402092), new cljs.core.Keyword(null, "pwd", "pwd", 583478407)];
-              var inst_24573 = ["ID", "PWD"];
-              var inst_24574 = cljs.core.PersistentHashMap.fromArrays(inst_24572, inst_24573);
-              var inst_24575 = [inst_24574];
-              var inst_24576 = cljs.core.PersistentHashMap.fromArrays(inst_24571, inst_24575);
-              var inst_24577 = cljs_http.client.post.call(null, "/stage1/sign-up", inst_24576);
-              var state_24583__$1 = state_24583;
-              return cljs.core.async.impl.ioc_helpers.take_BANG_.call(null, state_24583__$1, 2, inst_24577);
+          return function(state_18372) {
+            var state_val_18373 = state_18372[1];
+            if (state_val_18373 === 1) {
+              var inst_18353 = state_18372[7];
+              var inst_18352 = state_18372[8];
+              var inst_18352__$1 = domina.by_id.call(null, "usr_email");
+              var inst_18353__$1 = domina.by_id.call(null, "usr_pwd");
+              var inst_18354 = domina.by_id.call(null, "login_with_sign_up");
+              var inst_18355 = [new cljs.core.Keyword(null, "form-params", "form-params", 1884296467)];
+              var inst_18356 = [new cljs.core.Keyword(null, "email", "email", 1415816706), new cljs.core.Keyword(null, "pass", "pass", 1574159993), new cljs.core.Keyword(null, "sign-up", "sign-up", -1190725688)];
+              var inst_18357 = inst_18352__$1.value;
+              var inst_18358 = inst_18353__$1.value;
+              var inst_18359 = inst_18354.checked;
+              var inst_18360 = [inst_18357, inst_18358, inst_18359];
+              var inst_18361 = cljs.core.PersistentHashMap.fromArrays(inst_18356, inst_18360);
+              var inst_18362 = [inst_18361];
+              var inst_18363 = cljs.core.PersistentHashMap.fromArrays(inst_18355, inst_18362);
+              var inst_18364 = cljs_http.client.post.call(null, "/stage1/sign-up", inst_18363);
+              var state_18372__$1 = function() {
+                var statearr_18374 = state_18372;
+                statearr_18374[7] = inst_18353__$1;
+                statearr_18374[8] = inst_18352__$1;
+                return statearr_18374;
+              }();
+              return cljs.core.async.impl.ioc_helpers.take_BANG_.call(null, state_18372__$1, 2, inst_18364);
             } else {
-              if (state_val_24584 === 2) {
-                var inst_24579 = state_24583[2];
-                var inst_24580 = (new cljs.core.Keyword(null, "body", "body", -2049205669)).cljs$core$IFn$_invoke$arity$1(inst_24579);
-                var inst_24581 = alert(inst_24580);
-                var state_24583__$1 = state_24583;
-                return cljs.core.async.impl.ioc_helpers.return_chan.call(null, state_24583__$1, inst_24581);
+              if (state_val_18373 === 2) {
+                var inst_18353 = state_18372[7];
+                var inst_18352 = state_18372[8];
+                var inst_18366 = state_18372[2];
+                var inst_18367 = inst_18352.value = "";
+                var inst_18368 = inst_18353.value = "";
+                var inst_18369 = domina.by_id.call(null, "sign-up-form-close");
+                var inst_18370 = inst_18369.click();
+                var state_18372__$1 = function() {
+                  var statearr_18375 = state_18372;
+                  statearr_18375[9] = inst_18367;
+                  statearr_18375[10] = inst_18368;
+                  statearr_18375[11] = inst_18366;
+                  return statearr_18375;
+                }();
+                return cljs.core.async.impl.ioc_helpers.return_chan.call(null, state_18372__$1, inst_18370);
               } else {
                 return null;
               }
@@ -67002,17 +67025,17 @@ domina.events.listen_BANG_.call(null, domina.by_id.call(null, "sign-up-submit"),
           return function() {
             var tombox$core$state_machine__10711__auto__ = null;
             var tombox$core$state_machine__10711__auto____0 = function() {
-              var statearr_24588 = [null, null, null, null, null, null, null];
-              statearr_24588[0] = tombox$core$state_machine__10711__auto__;
-              statearr_24588[1] = 1;
-              return statearr_24588;
+              var statearr_18379 = [null, null, null, null, null, null, null, null, null, null, null, null];
+              statearr_18379[0] = tombox$core$state_machine__10711__auto__;
+              statearr_18379[1] = 1;
+              return statearr_18379;
             };
-            var tombox$core$state_machine__10711__auto____1 = function(state_24583) {
+            var tombox$core$state_machine__10711__auto____1 = function(state_18372) {
               while (true) {
                 var ret_value__10712__auto__ = function() {
                   try {
                     while (true) {
-                      var result__10713__auto__ = switch__10710__auto__.call(null, state_24583);
+                      var result__10713__auto__ = switch__10710__auto__.call(null, state_18372);
                       if (cljs.core.keyword_identical_QMARK_.call(null, result__10713__auto__, new cljs.core.Keyword(null, "recur", "recur", -437573268))) {
                         continue;
                       } else {
@@ -67020,21 +67043,21 @@ domina.events.listen_BANG_.call(null, domina.by_id.call(null, "sign-up-submit"),
                       }
                       break;
                     }
-                  } catch (e24589) {
-                    if (e24589 instanceof Object) {
-                      var ex__10714__auto__ = e24589;
-                      var statearr_24590_24592 = state_24583;
-                      statearr_24590_24592[5] = ex__10714__auto__;
-                      cljs.core.async.impl.ioc_helpers.process_exception.call(null, state_24583);
+                  } catch (e18380) {
+                    if (e18380 instanceof Object) {
+                      var ex__10714__auto__ = e18380;
+                      var statearr_18381_18383 = state_18372;
+                      statearr_18381_18383[5] = ex__10714__auto__;
+                      cljs.core.async.impl.ioc_helpers.process_exception.call(null, state_18372);
                       return new cljs.core.Keyword(null, "recur", "recur", -437573268);
                     } else {
-                      throw e24589;
+                      throw e18380;
                     }
                   }
                 }();
                 if (cljs.core.keyword_identical_QMARK_.call(null, ret_value__10712__auto__, new cljs.core.Keyword(null, "recur", "recur", -437573268))) {
-                  var G__24593 = state_24583;
-                  state_24583 = G__24593;
+                  var G__18384 = state_18372;
+                  state_18372 = G__18384;
                   continue;
                 } else {
                   return ret_value__10712__auto__;
@@ -67042,12 +67065,12 @@ domina.events.listen_BANG_.call(null, domina.by_id.call(null, "sign-up-submit"),
                 break;
               }
             };
-            tombox$core$state_machine__10711__auto__ = function(state_24583) {
+            tombox$core$state_machine__10711__auto__ = function(state_18372) {
               switch(arguments.length) {
                 case 0:
                   return tombox$core$state_machine__10711__auto____0.call(this);
                 case 1:
-                  return tombox$core$state_machine__10711__auto____1.call(this, state_24583);
+                  return tombox$core$state_machine__10711__auto____1.call(this, state_18372);
               }
               throw new Error("Invalid arity: " + arguments.length);
             };
@@ -67058,9 +67081,9 @@ domina.events.listen_BANG_.call(null, domina.by_id.call(null, "sign-up-submit"),
         }(switch__10710__auto__, c__10766__auto__);
       }();
       var state__10768__auto__ = function() {
-        var statearr_24591 = f__10767__auto__.call(null);
-        statearr_24591[cljs.core.async.impl.ioc_helpers.USER_START_IDX] = c__10766__auto__;
-        return statearr_24591;
+        var statearr_18382 = f__10767__auto__.call(null);
+        statearr_18382[cljs.core.async.impl.ioc_helpers.USER_START_IDX] = c__10766__auto__;
+        return statearr_18382;
       }();
       return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped.call(null, state__10768__auto__);
     };
@@ -67073,19 +67096,19 @@ tombox.core.init = function tombox$core$init() {
     return function() {
       var f__10767__auto__ = function() {
         var switch__10710__auto__ = function(c__10766__auto__) {
-          return function(state_24615) {
-            var state_val_24616 = state_24615[1];
-            if (state_val_24616 === 1) {
-              var inst_24609 = cljs_http.client.get.call(null, "/user");
-              var state_24615__$1 = state_24615;
-              return cljs.core.async.impl.ioc_helpers.take_BANG_.call(null, state_24615__$1, 2, inst_24609);
+          return function(state_18406) {
+            var state_val_18407 = state_18406[1];
+            if (state_val_18407 === 1) {
+              var inst_18400 = cljs_http.client.get.call(null, "/user");
+              var state_18406__$1 = state_18406;
+              return cljs.core.async.impl.ioc_helpers.take_BANG_.call(null, state_18406__$1, 2, inst_18400);
             } else {
-              if (state_val_24616 === 2) {
-                var inst_24611 = state_24615[2];
-                var inst_24612 = (new cljs.core.Keyword(null, "body", "body", -2049205669)).cljs$core$IFn$_invoke$arity$1(inst_24611);
-                var inst_24613 = alert(inst_24612);
-                var state_24615__$1 = state_24615;
-                return cljs.core.async.impl.ioc_helpers.return_chan.call(null, state_24615__$1, inst_24613);
+              if (state_val_18407 === 2) {
+                var inst_18402 = state_18406[2];
+                var inst_18403 = (new cljs.core.Keyword(null, "body", "body", -2049205669)).cljs$core$IFn$_invoke$arity$1(inst_18402);
+                var inst_18404 = alert(inst_18403);
+                var state_18406__$1 = state_18406;
+                return cljs.core.async.impl.ioc_helpers.return_chan.call(null, state_18406__$1, inst_18404);
               } else {
                 return null;
               }
@@ -67096,17 +67119,17 @@ tombox.core.init = function tombox$core$init() {
           return function() {
             var tombox$core$init_$_state_machine__10711__auto__ = null;
             var tombox$core$init_$_state_machine__10711__auto____0 = function() {
-              var statearr_24620 = [null, null, null, null, null, null, null];
-              statearr_24620[0] = tombox$core$init_$_state_machine__10711__auto__;
-              statearr_24620[1] = 1;
-              return statearr_24620;
+              var statearr_18411 = [null, null, null, null, null, null, null];
+              statearr_18411[0] = tombox$core$init_$_state_machine__10711__auto__;
+              statearr_18411[1] = 1;
+              return statearr_18411;
             };
-            var tombox$core$init_$_state_machine__10711__auto____1 = function(state_24615) {
+            var tombox$core$init_$_state_machine__10711__auto____1 = function(state_18406) {
               while (true) {
                 var ret_value__10712__auto__ = function() {
                   try {
                     while (true) {
-                      var result__10713__auto__ = switch__10710__auto__.call(null, state_24615);
+                      var result__10713__auto__ = switch__10710__auto__.call(null, state_18406);
                       if (cljs.core.keyword_identical_QMARK_.call(null, result__10713__auto__, new cljs.core.Keyword(null, "recur", "recur", -437573268))) {
                         continue;
                       } else {
@@ -67114,21 +67137,21 @@ tombox.core.init = function tombox$core$init() {
                       }
                       break;
                     }
-                  } catch (e24621) {
-                    if (e24621 instanceof Object) {
-                      var ex__10714__auto__ = e24621;
-                      var statearr_24622_24624 = state_24615;
-                      statearr_24622_24624[5] = ex__10714__auto__;
-                      cljs.core.async.impl.ioc_helpers.process_exception.call(null, state_24615);
+                  } catch (e18412) {
+                    if (e18412 instanceof Object) {
+                      var ex__10714__auto__ = e18412;
+                      var statearr_18413_18415 = state_18406;
+                      statearr_18413_18415[5] = ex__10714__auto__;
+                      cljs.core.async.impl.ioc_helpers.process_exception.call(null, state_18406);
                       return new cljs.core.Keyword(null, "recur", "recur", -437573268);
                     } else {
-                      throw e24621;
+                      throw e18412;
                     }
                   }
                 }();
                 if (cljs.core.keyword_identical_QMARK_.call(null, ret_value__10712__auto__, new cljs.core.Keyword(null, "recur", "recur", -437573268))) {
-                  var G__24625 = state_24615;
-                  state_24615 = G__24625;
+                  var G__18416 = state_18406;
+                  state_18406 = G__18416;
                   continue;
                 } else {
                   return ret_value__10712__auto__;
@@ -67136,12 +67159,12 @@ tombox.core.init = function tombox$core$init() {
                 break;
               }
             };
-            tombox$core$init_$_state_machine__10711__auto__ = function(state_24615) {
+            tombox$core$init_$_state_machine__10711__auto__ = function(state_18406) {
               switch(arguments.length) {
                 case 0:
                   return tombox$core$init_$_state_machine__10711__auto____0.call(this);
                 case 1:
-                  return tombox$core$init_$_state_machine__10711__auto____1.call(this, state_24615);
+                  return tombox$core$init_$_state_machine__10711__auto____1.call(this, state_18406);
               }
               throw new Error("Invalid arity: " + arguments.length);
             };
@@ -67152,9 +67175,9 @@ tombox.core.init = function tombox$core$init() {
         }(switch__10710__auto__, c__10766__auto__);
       }();
       var state__10768__auto__ = function() {
-        var statearr_24623 = f__10767__auto__.call(null);
-        statearr_24623[cljs.core.async.impl.ioc_helpers.USER_START_IDX] = c__10766__auto__;
-        return statearr_24623;
+        var statearr_18414 = f__10767__auto__.call(null);
+        statearr_18414[cljs.core.async.impl.ioc_helpers.USER_START_IDX] = c__10766__auto__;
+        return statearr_18414;
       }();
       return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped.call(null, state__10768__auto__);
     };

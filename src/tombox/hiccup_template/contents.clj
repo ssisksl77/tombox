@@ -22,13 +22,13 @@
    [:div {:class "container-fluid"}
     [:div {:class "navbar-header"}]
     
-    [:ul {:class "nav navbar-brand "}
-     [:li {:class "active" :id "go-home"} (link-to "/" "Home")]]
+    [:ul {:class "nav navbar-brand navbar-left"}
+     [:li {:class "active" :id "go-home"} (link-to "/" "H")]]
      ;[:li (link-to "#" "Page 1")]
      ;[:li (link-to "#" "Page 2")]]
     
     [:ul {:class "nav navbar-nav navbar-right"}
-     ;; [:li (link-to {:id "sign-up" :class "glyphicon glyphicon-user" } "#" " Sign up")]
+     ;[:li (link-to {:id "sign-up" :class "glyphicon glyphicon-user" } "#" " Sign up")]
      [:li (link-to {:class "glyphicon glyphicon-log-in" :data-toggle "modal" :data-target "#sign-up-form-modal"} "#" " Login")]]]]]
    
     [:li
@@ -87,16 +87,16 @@
     ;; Modal content
     [:div.modal-content
      [:div.modal-header {:style "padding:35px 50px;"}
-      [:button.close {:type "button" :data-dismiss "modal"} "&times;"]
+      [:button#sign-up-form-close.close {:type "button" :data-dismiss "modal"} "&times;"]
       [:h4 [:span.glyphicon.glyphicon-lock "Login"]]]
      [:div.modal-body {:style "padding:40px 50px;"}
       [:form {:role "form"}
        [:div.form-group
         [:label {:for "usrname"} [:span.glyphicon.glyphicon-user] "user email"]
-        [:input#usrname.form-control {:type "text" :placeholder "Enter email"}]]
+        [:input#usr_email.form-control {:type "text" :placeholder "Enter email"}]]
        [:div.form-group
-        [:label {:for "psw"} [:span.glyphicon.glyphicon-eye-open] "Password"]
-        [:input#pwd.form-control {:placeholder "Enter password"}]]
+        [:label {:for "psw" } [:span.glyphicon.glyphicon-eye-open] "Password"]
+        [:input#usr_pwd.form-control {:type "password" :placeholder "Enter password"}]]
        [:div.checkbox {:data-toggle "tooltip" :title "아이디가 없다면 그대로 만들어드립니다."}
-        [:label [:input {:type "checkbox" :value " " :checked "" } "그냥 눌러보고 싶죠?"]]]
+        [:label [:input#login_with_sign_up {:type "checkbox" :value " " :checked "" } "아이디가 없을 시 등록해드립니다."]]]
        [:button#sign-up-submit.btn.btn-success.btn-block {:type "button"} [:span.glyphicon.glyphicon-off] "Login"]]]]]])

@@ -30,14 +30,16 @@
 
 (ev/listen! (dom/by-id "sign-up-submit")
             :click (fn [evt] (go
-                               (let [response (<! (http/post "/stage1/sign-up"
-                                                  {:form-params {:id "ID" :pwd "PWD"}}))]
-                                 (js/alert (:body response))))))
-
-
+                               (let [email (dom/by-id "usr_email")
+                                     pwd  (dom/by-id "usr_pwd")
+                                     sign-up (dom/by-id "login_with_sign_up")
+                                     response (<! (http/post "/stage1/sign-up"
+                                                  {:form-params {:email (.-value email) :pass (.-value pwd) :sign-up (.-checked sign-up)}}))]
+                                 (set! (.-value email) "")
+                                 (set! (.-value pwd) "")
+                                 (.click (dom/by-id "sign-up-form-close"))
+                                 ))))
 
 (defn ^:export init []
   (go (let [response (<! (http/get "/user"))]
         (js/alert (:body response)))))
-
-
